@@ -3,33 +3,23 @@ namespace ReadWriteTxt.Read
 {
     public class ReadTxt
     {
-        private readonly StreamReader _streamReader;
-        public ReadTxt(StreamReader streamReader) => _streamReader = streamReader;
-
-        public ReadTxt()
-        {
-        }
-
+        public ReadTxt(){}
         String line;
        public void Read(){
          try
         {
-            
-            //Pass the file path and file name to the StreamReader constructor
-            StreamReader sr = new("C:\\dev\\Products.txt");
-            //Read the first line of text
-            String line = sr.ReadLine();
-            //Continue to read until you reach end of file
-            while (line != null)
-            {
-                //write the line to console window
-                Console.WriteLine(line);
-                //Read the next line
+            String path = "C:\\dev\\Products.txt";
+            using (StreamReader sr = new(path))
+            { 
                 line = sr.ReadLine();
+                while (line != null)
+                {
+                    Console.WriteLine(line);
+                    line = sr.ReadLine();
+                }
+            
+                sr.Close();
             }
-            //close the file
-            sr.Close();
-            Console.ReadLine();
         }
         catch(Exception e)
         {
