@@ -18,8 +18,10 @@ Product[] products =
             new Product { Id = 9, Description = "Keyboards", Amount = 77, Price = 200 },
             new Product { Id = 10, Description = "Headset", Amount = 90, Price = 350 },
         ];
+
 ReadTxt readTxt = new();
 WriteTxt writeTxt = new();
+
 Console.WriteLine("Add products to the table:");
 writeTxt.Write(products);
 Console.WriteLine("Read the file: ");

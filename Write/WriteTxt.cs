@@ -15,14 +15,12 @@ namespace ReadWriteTxt.Write
                     // Está criando o cabeçalho da tabela de produtos no formato de uma linha de 
                     // texto com colunas separadas por tabulação. Cada \t insere uma tabulação
                     stringBuilder.AppendLine("Id\tDescription\tAmount\tPrice");
-             
+                    
                     foreach (Product p in products)
                     {
-                       
-                        stringBuilder.AppendLine($"\t{p.Id}\t{p.Description}\t{p.Amount}\t{p.Price}");
+                        stringBuilder.AppendLine($"{p.Id,2}\t{p.Description, 10}\t{p.Amount, 5}\t{p.Price, 5}");
                     }
                     sw.Write(stringBuilder.ToString());
-                    Console.WriteLine(stringBuilder.ToString());
                     sw.Close();
                 }
                 Console.WriteLine("Products successfully added");
